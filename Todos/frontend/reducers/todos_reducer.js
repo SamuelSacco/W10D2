@@ -1,5 +1,6 @@
 import { RECEIVE_TODOS,
          RECEIVE_TODO } from "../actions/todo_actions";
+
 const initialState = {
     1: {
         id: 1,
@@ -16,9 +17,24 @@ const initialState = {
 };
 
 const todosReducer = (state = initialState, action) => {
-    switch (action.type) {
-        default:
-            return state;
+  Object.freeze(state);
+  let newState = {};
+  
+  switch (action.type) {
+    case RECEIVE_TODOS: // * DAFUQ
+      for (let i = 0; i < action.todos.length; i++) {
+        let todo = action.todos[i];
+        
+        newState[todo.id] = todo;
+      }
+
+      return newState;
+    case RECEIVE_TODO:
+      newState = Object.assign({}, state);
+      newState[action.todo.id] = action.todo;
+      return newState;
+    default:
+        return state;
     }
 };
 
