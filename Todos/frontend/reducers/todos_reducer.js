@@ -22,7 +22,7 @@ const todosReducer = (state = initialState, action) => {
   let newState = {};
   
   switch (action.type) {
-    case RECEIVE_TODOS: // * DAFUQ
+    case RECEIVE_TODOS:
       for (let i = 0; i < action.todos.length; i++) {
         let todo = action.todos[i];
         
@@ -30,16 +30,19 @@ const todosReducer = (state = initialState, action) => {
       }
 
       return newState;
+
     case RECEIVE_TODO:
       newState = Object.assign({}, state);
       newState[action.todo.id] = action.todo;
       
       return newState;
+
     case REMOVE_TODO:
       newState = Object.assign({}, state);
       delete newState[action.todo.id];
 
       return newState;
+
     default:
         return state;
     }

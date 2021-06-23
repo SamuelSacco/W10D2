@@ -9,7 +9,7 @@ const stepsReducer = (state = {}, action) => {
     let newState = {};
 
     switch (action.type) {
-        case RECEIVE_STEPS: // * DAFUQ
+        case RECEIVE_STEPS:
             for (let i = 0; i < action.steps.length; i++) {
                 let step = action.steps[i];
 
