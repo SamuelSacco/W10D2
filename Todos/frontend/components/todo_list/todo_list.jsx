@@ -4,10 +4,11 @@ import TodoForm from "./todo_form"
 
 export default class TodoList extends React.Component {
     constructor(props){
-        super(props)
+        super(props);
     }
-
+    
     render(){
+        debugger
         const todoLis = this.props.todos.map(todo =>{
             return (
                 <TodoListItem key={todo.id} todo={todo}/>
@@ -16,7 +17,7 @@ export default class TodoList extends React.Component {
 
         return (
             <div>
-                <TodoForm receiveTodo={ receiveTodo }/>
+                <TodoForm receiveTodo={ this.props.receiveTodo }/>
                 <h1>
                     All Todos
                 </h1>

@@ -3,6 +3,7 @@ export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
 
 export const receiveTodo = todo => {
+    debugger
     return {
         type: RECEIVE_TODO,
         todo, // *dafuq

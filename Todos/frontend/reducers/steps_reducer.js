@@ -2,7 +2,7 @@ import{
     RECEIVE_STEP,
     RECEIVE_STEPS,
     REMOVE_STEP
-} from '../actions/step_actions'
+} from '../actions/step_actions';
 
 const stepsReducer = (state = {}, action) => {
     Object.freeze(state);

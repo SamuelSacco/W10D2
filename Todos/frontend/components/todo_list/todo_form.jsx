@@ -1,5 +1,5 @@
-import React from 'react'
-import uniqueId from '../../../util/unique_id'
+import React from 'react';
+import uniqueId from '../../../util/unique_id';
 
 class TodoForm extends React.Component {
     constructor(props){
@@ -17,27 +17,29 @@ class TodoForm extends React.Component {
     }
     
     updateTitle(e) {
-        console.log(e.target)
         this.setState({title: e.target.value})
-    }
+    };
     
     updateBody(e){
         this.setState({body: e.target.value })
-        
-    }
+    };
     
     updateDone(e){
         this.setState({done: e.target.value })
-    }
+    };
     
     handleSubmit(e){
+        debugger
         e.preventDefault();
         const todo = Object.assign({}, this.state, {id: uniqueId()})
         this.props.receiveTodo(todo)
-    }
+        this.setState({
+            title: "",
+            body: ""
+        }) // reset form
+    };
     
     render(){
-        console.log(this.props)
         return(
             <form onSubmit={this.handleSubmit}>
             <h1>Add Todo</h1>
